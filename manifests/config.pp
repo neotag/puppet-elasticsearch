@@ -3,7 +3,10 @@
 # Examples
 #
 #   include elasticsearch::config
-class elasticsearch::config {
+class elasticsearch::config (
+  $port       = 19200,
+  $transport  = 19300
+){
   require boxen::config
 
   $cluster    = "elasticsearch_boxen_${::boxen_user}"
@@ -13,6 +16,4 @@ class elasticsearch::config {
   $executable = "${boxen::config::homebrewdir}/bin/elasticsearch"
   $logdir     = "${boxen::config::logdir}/elasticsearch"
   $logfile    = "${logdir}/console.log"
-  $port       = 19200
-  $transport  = 19300
 }
